@@ -1,0 +1,176 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Pacifico";
+  src: url("./Pacifico/Pacifico-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 2rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+}
+
+header {
+  background-color: black;
+  border-bottom: 1px solid rgb(134, 3, 199);
+}
+header ul {
+  list-style: none;
+  height: 7vh;
+}
+header ul a {
+  color: rgb(134, 3, 199);
+  font-family: "Pacifico", serif;
+  font-size: 2em;
+  padding-left: 2vw;
+  margin-right: 1vw;
+  text-decoration: none;
+  transition: font-size 0.3s ease;
+}
+header ul a:hover {
+  font-size: 2.2em;
+  text-shadow: 5px 5px 5px greenyellow, -5px -5px 5px greenyellow, -5px 5px 10px greenyellow, 5px -5px 5px greenyellow;
+}
+
+main {
+  width: 80vw;
+  margin-top: 5vh;
+}
+main .hero {
+  margin-bottom: 10vh;
+  color: rgb(134, 3, 199);
+}
+main .hero svg {
+  display: block;
+  margin: 50px auto;
+}
+main .hero .line {
+  stroke-dasharray: 500; /* Longitud total de la línea (debe coincidir con la longitud del trazo) */
+  stroke-dashoffset: 500; /* Inicialmente, la línea está oculta */
+  animation: draw-line 3s ease forwards; /* La animación que hará que la línea se dibuje */
+}
+@keyframes draw-line {
+  100% {
+    stroke-dashoffset: 0; /* Al final de la animación, el trazo estará completamente visible */
+  }
+}
+main .progress-bar {
+  width: 10%;
+  transition: width 5s ease;
+}
+main .cards .card {
+  transform-origin: center;
+  background-color: black;
+  cursor: pointer;
+}
+main .cards .card:hover {
+  animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
+  box-shadow: 0 0 1px rgb(134, 3, 199), 0 0 15px rgb(134, 3, 199), 0 0 30px rgb(134, 3, 199);
+  z-index: 1;
+}
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+main .cards .card h3 {
+  color: rgb(134, 3, 199);
+  font-family: "Pacifico", serif;
+}
+main .cards .card p {
+  color: rgb(134, 3, 199);
+  text-align: justify;
+  font-family: "Lato", serif;
+  font-weight: 400;
+  font-style: italic;
+  padding: 0 1vw;
+}
+main .skills .skill p {
+  color: rgb(134, 3, 199);
+  font-family: "Lato", serif;
+  font-weight: 400;
+}
+main .skills .skill .bar-100 {
+  width: 100%;
+}
+main .skills .skill .bar-80 {
+  width: 80%;
+}
+main .skills .skill .bar-70 {
+  width: 70%;
+}
+main .falling-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  grid-template-rows: repeat(2, 1fr); /* 2 filas */
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+main .block {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  background-color: transparent;
+  border: 5px solid transparent;
+  animation: fall 3s ease-in-out 1, glow 1.5s ease-in-out 1;
+}
+main .block-1 {
+  top: -70px;
+  left: 10px;
+  border-color: red;
+}
+main .block-2 {
+  top: -70px;
+  left: 80px;
+  border-color: blue;
+}
+main .block-3 {
+  top: -70px;
+  left: 150px;
+  border-color: yellow;
+}
+main .block-4 {
+  top: -70px;
+  left: 220px;
+  border-color: green;
+}
+main .block-5 {
+  top: -70px;
+  left: 290px;
+  border-color: rgb(134, 3, 199);
+}
+@keyframes fall {
+  0% {
+    top: -70px;
+  }
+  100% {
+    top: 400px; /* Se ajusta según la altura del contenedor */
+  }
+}
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px 5px transparent;
+  }
+  50% {
+    box-shadow: 0 0 15px 15px rgba(255, 0, 0, 0.7), 0 0 15px 15px rgba(0, 0, 255, 0.7), 0 0 15px 15px rgba(0, 255, 0, 0.7), 0 0 15px 15px rgba(255, 255, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px 5px transparent;
+  }
+}/*# sourceMappingURL=styles.css.map */

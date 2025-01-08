@@ -1,0 +1,226 @@
+@use "variables.scss" as *;
+
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('./Pacifico/Pacifico-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 2rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $maincolor;
+}
+
+
+header {
+
+    background-color: $maincolor;
+    border-bottom: 1px solid $maincolor2;
+    ul {
+        list-style: none;
+        height: 7vh;
+
+        a {
+
+            color:$maincolor2;
+            
+            font-family: "Pacifico", serif;
+            
+            font-size: 2em;
+            padding-left: 2vw;
+            
+            margin-right: 1vw;
+            text-decoration: none;
+            transition: font-size 0.3s ease;
+            &:hover {
+              font-size: 2.2em;
+              text-shadow: 5px 5px 5px greenyellow, -5px -5px 5px greenyellow, -5px 5px 10px greenyellow, 5px -5px 5px greenyellow;
+              //text-shadow: 0 0 0px greenyellow, 0 0 15px greenyellow, 0 0 30px greenyellow;
+
+            }
+        }
+    }
+
+}
+
+main {
+    width: 80vw;
+    margin-top: 5vh;
+
+    .hero {
+        margin-bottom:10vh;   
+        color: $maincolor2;
+
+        svg {
+            display: block;
+            margin: 50px auto;
+          }
+          
+          .line {
+            stroke-dasharray: 500; /* Longitud total de la línea (debe coincidir con la longitud del trazo) */
+            stroke-dashoffset: 500; /* Inicialmente, la línea está oculta */
+            animation: draw-line 3s ease forwards; /* La animación que hará que la línea se dibuje */
+          }
+          
+          @keyframes draw-line {
+            100% {
+              stroke-dashoffset: 0; /* Al final de la animación, el trazo estará completamente visible */
+            }
+          }
+    }
+  
+    .progress-bar {
+        width: 10%;
+        transition: width 5s ease;
+        
+    }
+
+    
+
+    .cards {
+
+
+      .card {
+        transform-origin: center;
+        background-color: black;
+        cursor: pointer;
+        &:hover {
+          animation:  spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
+          box-shadow: 0 0 1px $maincolor2, 0 0 15px $maincolor2, 0 0 30px $maincolor2;
+          z-index: 1;
+
+        }
+
+        @keyframes spin {
+          0% {
+            transform: rotateY(0deg);
+          }
+          100% {
+            transform: rotateY(360deg);
+          }
+        }
+        
+        
+
+        h3 {
+          color: $maincolor2;
+          font-family: "Pacifico", serif;
+          
+          
+        }
+      
+        p {
+          color: $maincolor2;
+          text-align: justify;
+          font-family: "Lato", serif;
+          font-weight: 400;
+          font-style: italic;
+          padding: 0 1vw;
+        }
+      }
+    }
+
+    .skills {
+      .skill {
+        p {
+          color: $maincolor2;
+          font-family: "Lato", serif;
+          font-weight: 400;
+        }
+        .bar-100{
+          width: 100%;
+        }
+        .bar-80{
+          width: 80%;
+        }
+        .bar-70{
+          width: 70%;
+        }
+      }
+    }
+
+
+
+    .falling-blocks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+        grid-template-rows: repeat(2, 1fr); /* 2 filas */
+        width: 200px;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .block {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        margin: 10px;
+        background-color: transparent;
+        border: 5px solid transparent;
+        animation: fall 3s ease-in-out 1, glow 1.5s ease-in-out 1;
+      }
+      
+      .block-1 {
+        top: -70px;
+        left: 10px;
+        border-color: red;
+      }
+      
+      .block-2 {
+        top: -70px;
+        left: 80px;
+        border-color: blue;
+      }
+      
+      .block-3 {
+        top: -70px;
+        left: 150px;
+        border-color: yellow;
+      }
+      
+      .block-4 {
+        top: -70px;
+        left: 220px;
+        border-color: green;
+      }
+      
+      .block-5 {
+        top: -70px;
+        left: 290px;
+        border-color: $maincolor2;
+      }
+      
+      @keyframes fall {
+        0% {
+          top: -70px;
+        }
+        100% {
+          top: 400px; /* Se ajusta según la altura del contenedor */
+        }
+      }
+      
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 5px 5px transparent;
+        }
+        50% {
+          box-shadow: 0 0 15px 15px rgba(255, 0, 0, 0.7), 0 0 15px 15px rgba(0, 0, 255, 0.7), 0 0 15px 15px rgba(0, 255, 0, 0.7), 0 0 15px 15px rgba(255, 255, 0, 0.7);
+        }
+        100% {
+          box-shadow: 0 0 5px 5px transparent;
+        }
+      }
+}

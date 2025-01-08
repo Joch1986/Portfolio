@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="./index.js"></script>
+</head>
+<body>
+    <header>
+        <ul class="d-flex align-items-center justify-content-end m-2" >
+            <li><a href="#me">Mi</a></li>
+            <li><a href="#projects" >Projects</a></li>
+            <li><a href="#skills">Skills</a></li>       
+            <li><a href="#contact">Contact</a></li>            
+     
+        </ul>
+    </header>
+    <main class="mx-auto d-flex flex-column ">
+        <!-- <div class="falling-blocks">
+            <div class="block block-1"></div>
+            <div class="block block-2"></div>
+            <div class="block block-3"></div>
+            <div class="block block-4"></div>
+            <div class="block block-5"></div>
+          </div> -->
+
+
+            <div id="me" class="hero bg-white mb-5">
+                <p>Joaquín Comas</p>
+                <p>Engineer</p>
+                <svg width="100%" height="100" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+                    <path class="line" d="M10 50 L 150 50 C 200 50, 250 100, 300 50 S 350 0, 400 50" stroke="rgb(134, 3, 199)" fill="transparent" stroke-width="4"/>              </svg>
+
+            </div>
+
+            <div id="projects" class="cards row m-0 mb-5 ">
+                <div class="card col-12 col-sm-12 col-md-4 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center pt-3 ">
+                    <h3>Universe Simulator</h4>
+                    <img src="vecteezy_saturn.svg" alt="Saturno Lila Minimalista">
+
+                    <p>
+                        An Incredible Travel through the born and grow of a full universe from the CLI. Project developed in JAVA with MYSQL connection.
+                    </p>
+                </div>
+                <div class="card col-12 col-sm-12 col-md-4 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center pt-3">
+                    <h3>Tetris</h3>
+                    <img src="tetris-svgrepo-com.svg" alt="Tetris">
+
+                    <p>
+                        Version of the popular game from the 80s Tetris. Developed in HTML, CSS, Canvas and JS
+
+                    </p>
+                </div>
+                <div class="card col-12 col-sm-12 col-md-4 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center  pt-3">
+                    <h3>Portfolio</h3>
+                    <img src="laptop-svgrepo-com.svg" alt="Portfolio Lila">
+                    <p>
+                        My last and most excitement Project. This Portfolio. Where I can show all my creativity and my imagination in a limitless way.
+                        Made With HTML, CSS and BootStrap
+                    </p>
+
+                </div>
+
+            </div>
+            <div id="skills" class="skills mt-5 mb-5">
+                <div class="skill row m-0 ">
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            Logic, Problem Resolution
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 mt-3">
+                        <div id='bar1001' class="progress-bar " role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          100%
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="skill row m-0 ">
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            Learning
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10">
+                        <div id='bar1002' class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          100%
+                        </div>
+                    </div>
+                </div>
+                <div class="skill row m-0">
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            Python
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10">
+                        <div id='python' class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          80%
+                        </div>
+                    </div>
+                </div>
+                <div class="skill row m-0">
+                    <div  class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            HTML
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10">
+                        <div id='html' class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          70%
+                        </div>
+                    </div>
+                </div>
+                <div class="skill row m-0">
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            CSS
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10">
+                        <div id='css' class="progress-bar" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          70%
+                        </div>
+                    </div>
+                </div>
+                <div class="skill row m-0">
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            JS
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10">
+                        <div id='js' class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          70%
+                        </div>
+                    </div>
+                </div>
+                <div class="skill row m-0">
+                    <div  class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                        <p>
+                            PHP
+                        </p>
+                    </div>
+                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10">
+                        <div id='php' class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          70%
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
