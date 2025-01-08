@@ -96,29 +96,60 @@ main {
         transform-origin: center;
         background-color: black;
         cursor: pointer;
+        transition: transform 1s linear;
         &:hover {
-          animation:  spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
-          box-shadow: 0 0 1px $maincolor2, 0 0 15px $maincolor2, 0 0 30px $maincolor2;
+          animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1), glowing 10s linear infinite;
           z-index: 1;
-
+          transform: scale(1.5);
         }
 
         @keyframes spin {
           0% {
-            transform: rotateY(0deg);
+            transform: rotateY(0deg) scale(1);
+
           }
           100% {
-            transform: rotateY(360deg);
+            transform: rotateY(360deg) scale(1.5);
+
           }
         }
-        
-        
+
+        @keyframes glowing {
+          0% {
+            box-shadow: 0 0 1px $maincolor2, 0 0 15px $maincolor2, 0 0 30px $maincolor2;
+
+          }
+
+          20% {
+            box-shadow: 0 0 1px $maincolor, 0 0 15px $maincolor, 0 0 30px $maincolor;
+
+
+          }
+
+          40% {
+            box-shadow: 0 0 1px green, 0 0 15px green, 0 0 30px green;
+
+          }
+
+          60% {
+            box-shadow: 0 0 1px rgb(135, 0, 0), 0 0 15px rgb(135, 0, 0), 0 0 30px rgb(135, 0, 0);
+
+          }
+
+          80% {
+            box-shadow: 0 0 1px blue , 0 0 15px blue, 0 0 30px blue;
+
+          }
+
+          100% {
+            box-shadow: 0 0 1px $maincolor2, 0 0 15px $maincolor2, 0 0 30px $maincolor2;
+
+          }
+        }
 
         h3 {
           color: $maincolor2;
           font-family: "Pacifico", serif;
-          
-          
         }
       
         p {
@@ -152,75 +183,11 @@ main {
     }
 
 
+}
 
-    .falling-blocks {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-        grid-template-rows: repeat(2, 1fr); /* 2 filas */
-        width: 200px;
-        height: 400px;
-        overflow: hidden;
-        position: relative;
-      }
-      
-      .block {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        margin: 10px;
-        background-color: transparent;
-        border: 5px solid transparent;
-        animation: fall 3s ease-in-out 1, glow 1.5s ease-in-out 1;
-      }
-      
-      .block-1 {
-        top: -70px;
-        left: 10px;
-        border-color: red;
-      }
-      
-      .block-2 {
-        top: -70px;
-        left: 80px;
-        border-color: blue;
-      }
-      
-      .block-3 {
-        top: -70px;
-        left: 150px;
-        border-color: yellow;
-      }
-      
-      .block-4 {
-        top: -70px;
-        left: 220px;
-        border-color: green;
-      }
-      
-      .block-5 {
-        top: -70px;
-        left: 290px;
-        border-color: $maincolor2;
-      }
-      
-      @keyframes fall {
-        0% {
-          top: -70px;
-        }
-        100% {
-          top: 400px; /* Se ajusta según la altura del contenedor */
-        }
-      }
-      
-      @keyframes glow {
-        0% {
-          box-shadow: 0 0 5px 5px transparent;
-        }
-        50% {
-          box-shadow: 0 0 15px 15px rgba(255, 0, 0, 0.7), 0 0 15px 15px rgba(0, 0, 255, 0.7), 0 0 15px 15px rgba(0, 255, 0, 0.7), 0 0 15px 15px rgba(255, 255, 0, 0.7);
-        }
-        100% {
-          box-shadow: 0 0 5px 5px transparent;
-        }
-      }
+footer {
+
+  border-top: 1px solid $maincolor2;
+
+
 }

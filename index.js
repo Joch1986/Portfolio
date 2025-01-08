@@ -21,6 +21,21 @@ php.addEventListener('mouseenter', () => ponerClase( event, 'bar-70'));
 
 const projects = document.getElementsByClassName('card');
 projects[0].addEventListener('click', () => location.href = 'https://github.com/jchfbmoll/UniverseProject');
-projects[1].addEventListener('click', location.href('https://github.com/Joch1986/tetris'));
-projects[2].addEventListener('click', location.reload());
+projects[1].addEventListener('click', () => location.href = 'https://github.com/Joch1986/Tetris');
+projects[2].addEventListener('click', () => location.href = 'https://github.com/Joch1986/Portfolio');
 
+window.addEventListener('scroll', function() {
+  const skills = document.getElementsByClassName('progress-bar');
+  console.log(skills);
+  for(let i = 0; i < skills.length; i++){
+    const element = skills[i];
+    const rect = element.getBoundingClientRect();
+
+    // Si el elemento está en la pantalla (su parte superior está dentro del viewport)
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      // Realizar alguna acción
+      element.classList.add('bar-'+element.textContent.split('%')[0].trim());
+    }
+  }
+
+});

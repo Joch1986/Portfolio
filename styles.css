@@ -72,18 +72,39 @@ main .cards .card {
   transform-origin: center;
   background-color: black;
   cursor: pointer;
+  transition: transform 1s linear;
 }
 main .cards .card:hover {
-  animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
-  box-shadow: 0 0 1px rgb(134, 3, 199), 0 0 15px rgb(134, 3, 199), 0 0 30px rgb(134, 3, 199);
+  animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1), glowing 10s linear infinite;
   z-index: 1;
+  transform: scale(1.5);
 }
 @keyframes spin {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) scale(1);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 1px rgb(134, 3, 199), 0 0 15px rgb(134, 3, 199), 0 0 30px rgb(134, 3, 199);
+  }
+  20% {
+    box-shadow: 0 0 1px black, 0 0 15px black, 0 0 30px black;
+  }
+  40% {
+    box-shadow: 0 0 1px green, 0 0 15px green, 0 0 30px green;
+  }
+  60% {
+    box-shadow: 0 0 1px rgb(135, 0, 0), 0 0 15px rgb(135, 0, 0), 0 0 30px rgb(135, 0, 0);
+  }
+  80% {
+    box-shadow: 0 0 1px blue, 0 0 15px blue, 0 0 30px blue;
+  }
+  100% {
+    box-shadow: 0 0 1px rgb(134, 3, 199), 0 0 15px rgb(134, 3, 199), 0 0 30px rgb(134, 3, 199);
   }
 }
 main .cards .card h3 {
@@ -112,65 +133,7 @@ main .skills .skill .bar-80 {
 main .skills .skill .bar-70 {
   width: 70%;
 }
-main .falling-blocks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-  grid-template-rows: repeat(2, 1fr); /* 2 filas */
-  width: 200px;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-}
-main .block {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  margin: 10px;
-  background-color: transparent;
-  border: 5px solid transparent;
-  animation: fall 3s ease-in-out 1, glow 1.5s ease-in-out 1;
-}
-main .block-1 {
-  top: -70px;
-  left: 10px;
-  border-color: red;
-}
-main .block-2 {
-  top: -70px;
-  left: 80px;
-  border-color: blue;
-}
-main .block-3 {
-  top: -70px;
-  left: 150px;
-  border-color: yellow;
-}
-main .block-4 {
-  top: -70px;
-  left: 220px;
-  border-color: green;
-}
-main .block-5 {
-  top: -70px;
-  left: 290px;
-  border-color: rgb(134, 3, 199);
-}
-@keyframes fall {
-  0% {
-    top: -70px;
-  }
-  100% {
-    top: 400px; /* Se ajusta según la altura del contenedor */
-  }
-}
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 5px 5px transparent;
-  }
-  50% {
-    box-shadow: 0 0 15px 15px rgba(255, 0, 0, 0.7), 0 0 15px 15px rgba(0, 0, 255, 0.7), 0 0 15px 15px rgba(0, 255, 0, 0.7), 0 0 15px 15px rgba(255, 255, 0, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 5px 5px transparent;
-  }
+
+footer {
+  border-top: 1px solid rgb(134, 3, 199);
 }/*# sourceMappingURL=styles.css.map */
