@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Enlace a Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="./index.js"></script>
 </head>
+
 <body >
+    <!-- A partir de ahora, todos los comentarios serán relacionados con la estructura del HTML y BootStrap-->
+
+    <!-- Dentro del header hacemos un menú superior que es un elemento ul con lis y enlaces a-->
+    <!-- Respecto al BootStrap, ul se comporta como un flexbox con d-flex, justificamos y alineamos los elementos a
+     la derecha del todo y ponemos un margen alrededor  -->
     <header>
         <ul class="d-flex align-items-center justify-content-end m-2" >
             <li><a href="#me">Mi</a></li>
@@ -17,156 +26,182 @@
      
         </ul>
     </header>
+
+    <!-- Main class, que tiene nuestra sección, div en ese caso, hero, otra con mostrando nuestros proyectos y 
+     otra con nuestras habilidades -->
+    
+    <!-- Tiene margenes laterales automáticos para centrarse y tiene la estructura de flexbox en columna -->
+
     <main class="mx-auto d-flex flex-column ">
-       
+    
+        <!-- La clase hero, es el elemento que más llama la atención inicialmente con su animación inicial,
+         una imagen y un texto descriptivo sobre mi -->
 
+        <!-- Se comporta como grid en resoluciones muy grandes, en dos columnas a resoluciones más pequeñas
+         columna -->
 
-            <div id="me" class="hero row mb-5 flash">
-                <p class="col-12 col-sm-12 col-md-12 col-xl-6 col-xxl-6 mt-4 "><span> Joaquín Comas</span><br>Hello there,<br> I'm an Engineer and Web Developer.<br> I enjoy sports and I am a dog lover. <br>This Portfolio is for you.<br> <span>ENJOY!!!</span> </p>
-                <img class="col-12 col-sm-12 col-md-12 col-xl-6 col-xxl-6" src="./pastoraleman.webp" alt="Pastor alemán">
+        <div id="me" class="hero row mb-5 ">
+            <p class="col-12 col-sm-12 col-md-12 col-xl-6 col-xxl-6 mt-4 pt-3"><span class="special"> Joaquín Comas</span> <span class="notspecial"><br>Hello there,<br> I'm an Engineer and Web Developer.<br> I enjoy sports and I am a dog lover. <br> This Portfolio is for you.</span><br> <span class="special">ENJOY!!!</span> </p>
+            <img class="col-12 col-sm-12 col-md-12 col-xl-6 col-xxl-6" src="./pastoraleman.webp" alt="Pastor alemán">
+        </div>
+
+        <!-- Sección con mis proyectos más destacables, cada uno de los proyectos o cartas tiene un título, una imagen,
+         que son SVGs de licencia de dominio público, relacionada con el proyecto y una pequeña descripción -->
+        <!-- Se comporta como un grid de 3 columnas a resoluciones grandes, y en una única columna a resoluciones más
+         pequeñas, cada uno de estas columnas es un flex en columna y-->
+
+        <div id="projects" class="cards row m-0 mb-1 ">
+            <div class="card col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center pt-3 ">
+                <h1>Universe Simulator</h1>
+                <img src="vecteezy_saturn.svg" alt="Saturno Lila Minimalista">
+
+                <p>
+                    An Incredible Travel through the born and grow of a full universe from the CLI. Project developed in JAVA with MYSQL connection.
+                </p>
+            </div>
+            <div class="card col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center pt-3">
+                <h1>Tetris</h1>
+                <img src="tetris-svgrepo-com.svg" alt="Tetris">
+
+                <p>
+                    Version of the popular game of the 80s. Developed in HTML, CSS, Canvas and JS
+
+                </p>
+            </div>
+            <div class="card col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center  pt-3">
+                <h1>Portfolio</h1>
+                <img src="laptop-svgrepo-com.svg" alt="Portfolio Lila">
+                <p>
+                    My last and most exciting Project. This Portfolio. Where I can show all my creativity and my imagination in a limitless way.
+                    Made With HTML, CSS and BootStrap
+                </p>
+
             </div>
 
-            <div id="projects" class="cards row m-0 mb-1 ">
-                <div class="card col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center pt-3 ">
-                    <h1>Universe Simulator</h1>
-                    <img src="vecteezy_saturn.svg" alt="Saturno Lila Minimalista">
+        </div>
 
+       <!-- Sección con mis mejores habilidades, que es un grid monocolumna.
+         Cada una de las fillas es un grid de 2 columnas,
+        excepto a resoluciones mínimas en cuyo caso es monocolumna, se utilizan las classes prgo progress-bar
+        progress-bar-striped progress-bar-animated son para aplicar estilos de barras de progreso -->
+
+        <div id="skills" class="skills mt-5 mb-1 row ">
+            <div class="skill col-12 row m-0 ">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
                     <p>
-                        An Incredible Travel through the born and grow of a full universe from the CLI. Project developed in JAVA with MYSQL connection.
+                        Logic, Problem Resolution
                     </p>
                 </div>
-                <div class="card col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center pt-3">
-                    <h1>Tetris</h1>
-                    <img src="tetris-svgrepo-com.svg" alt="Tetris">
-
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 mt-1 bg-black">
+                    <div id='bar1001' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        100%
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill col-12 row m-0 ">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
                     <p>
-                        Version of the popular game of the 80s. Developed in HTML, CSS, Canvas and JS
-
+                        Learning
                     </p>
                 </div>
-                <div class="card col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4 m-0 d-flex flex-column text-center  pt-3">
-                    <h1>Portfolio</h1>
-                    <img src="laptop-svgrepo-com.svg" alt="Portfolio Lila">
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
+                    <div id='bar1002' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        100%
+                    </div>
+                </div>
+            </div>
+            <div class="skill col-12 row m-0">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
                     <p>
-                        My last and most exciting Project. This Portfolio. Where I can show all my creativity and my imagination in a limitless way.
-                        Made With HTML, CSS and BootStrap
+                        Python
                     </p>
-
                 </div>
-
-            </div>
-            <div id="skills" class="skills mt-5 mb-1">
-                <div class="skill row m-0 ">
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            Logic, Problem Resolution
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 mt-1 bg-black">
-                        <div id='bar1001' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          100%
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="skill row m-0 ">
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            Learning
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
-                        <div id='bar1002' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          100%
-                        </div>
-                    </div>
-                </div>
-                <div class="skill row m-0">
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            Python
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
-                        <div id='python' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          80%
-                        </div>
-                    </div>
-                </div>
-                <div class="skill row m-0">
-                    <div  class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            HTML
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
-                        <div id='html' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          70%
-                        </div>
-                    </div>
-                </div>
-                <div class="skill row m-0">
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            CSS
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
-                        <div id='css' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          70%
-                        </div>
-                    </div>
-                </div>
-                <div class="skill row m-0">
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            JS
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
-                        <div id='js' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          70%
-                        </div>
-                    </div>
-                </div>
-                <div class="skill row m-0">
-                    <div  class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
-                        <p>
-                            PHP
-                        </p>
-                    </div>
-                    <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
-                        <div id='php' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                          70%
-                        </div>
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
+                    <div id='python' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        80%
                     </div>
                 </div>
             </div>
-
-            <div id="contact">
-                <h1>Contact with us!!!</h1>
-                <form class="d-flex flex-column">
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" name="name" class=>
-                        <label for="surname">Surname</label>
-                        <input type="text" name="surname">
+            <div class="skill col-12 row m-0">
+                <div  class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                    <p>
+                        HTML
+                    </p>
+                </div>
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
+                    <div id='html' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        70%
                     </div>
-                  
-                    <div>
-                        <label  for="email">Email</label>
-                        <input type="text" name="email">
-                    </div>
-                    
-                    <label for="message">Message</label>
-                    <textarea name="message" class="pl-1" rows="10" cols="50"> </textarea>
-                   
-                </form>
-
-
+                </div>
             </div>
+            <div class="skill col-12 row m-0">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                    <p>
+                        CSS
+                    </p>
+                </div>
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
+                    <div id='css' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        70%
+                    </div>
+                </div>
+            </div>
+            <div class="skill col-12 row m-0">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                    <p>
+                        JS
+                    </p>
+                </div>
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
+                    <div id='js' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        70%
+                    </div>
+                </div>
+            </div>
+            <div class="skill col-12 row m-0">
+                <div  class="col-12 col-sm-6 col-md-4 col-xl-2 col-xxl-2">
+                    <p>
+                        PHP
+                    </p>
+                </div>
+                <div class="progress col-12 col-sm-6 col-md-8 col-xl-10 col-xxl-10 bg-black">
+                    <div id='php' class="progress-bar progres-js progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        70%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact">
+            <h1>Contact with us!!!</h1>
+            <form class="d-flex flex-column">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class=>
+                    <label for="surname">Surname</label>
+                    <input type="text" name="surname">
+                </div>
+                
+                <div>
+                    <label  for="email">Email</label>
+                    <input type="text" name="email">
+                </div>
+                
+                <label for="message">Message</label>
+                <textarea name="message" class="pl-1" rows="10" cols="50"> </textarea>
+                <button class="btn btn-light" type="submit" value="Submit">Submit</button>
+            </form>
+
+
+        </div>
     </main>
-    <footer class="row pt-3">
+
+    <!-- Finalmente, nos encontramos el footer, que es un grid de dos columnas, excepto a resoluciones muy pequeñas
+     en cuyo caso es de una única columna. Cada una de las columnas es un flex en forma de columna 
+     con los campos centrados-->
+
+    <footer class="row mt-5 pt-3">
         <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6 d-flex flex-column align-items-center">
             <p class="text-secondary">Joaquín Comas</p>
             <p class="text-secondary">Palma de Mallorca. Illes Balears.</p>

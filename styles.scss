@@ -1,6 +1,6 @@
 @use "variables.scss" as *;
 
-
+// Definimos la fuente que usaremos por defecto
 @font-face {
     font-family: 'Pacifico';
     src: url('./Pacifico/Pacifico-Regular.ttf') format('truetype');
@@ -8,335 +8,438 @@
     font-style: normal;
 }
 
+// Inicializamos los distintos valores que usaremos para las animaciones iniciales
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    visibility:hidden;
+    &:not(html):not(body):not(main):not(.hero):not(.lighting):not(.special):not(.card) {
+      
+      animation: lights2 2s linear 1 forwards;
+      animation-delay: 6s;
+      @keyframes lights2 {
+
+        0%{
+          visibility:hidden;
+        }
+        
+        100%{
+          visibility:visible;
+
+        }
+      }
+    }
 }
+
+// Scroll behavior se utiliza para cuando clickamos uno de los botones el desplazamiento sea elegante
 
 html {
-    scroll-behavior: smooth;
-}
+  scroll-behavior: smooth;
+  visibility:visible;
 
-body {
-    background-color: $maincolor;
-}
+  body {
 
+      background-color: $maincolor;
+      visibility:visible;
 
-header {
+      header {
 
-    background-color: $maincolor;
-    border-bottom: 1px solid $maincolor2;
-    ul {
-        list-style: none;
-        height: 7vh;
+        background-color: $maincolor;
+        border-bottom: 1px solid $maincolor2;
 
-        a {
+        ul {
 
-            color:$maincolor2;
-            
-            font-family: "Pacifico", serif;
-            
-            font-size: 3em;
-            padding-left: 2vw;
-            
-            margin-right: 1vw;
-            text-decoration: none;
-            transition: font-size 0.3s ease;
-            &:hover {
-              font-size: 3.3em;
-              text-shadow: 5px 5px 5px greenyellow, -5px -5px 5px greenyellow, -5px 5px 10px greenyellow, 5px -5px 5px greenyellow;
+            list-style: none;
+            height: 7vh;
+    
+            a {
+                // Formateamos los enlaces del menú superior y cuando hacemos un hover hacemos que saque 
+                //un aura verde alrededor del texto dando la sensación de que brilla
 
+                color:$maincolor2;
+                font-family: "Pacifico", serif;    
+                font-size: 3em;
+                padding-left: 2vw; 
+                margin-right: 1vw;
+                text-decoration: none;
+                transition: font-size 0.3s ease;
+                &:hover {
+                  font-size: 3.3em;
+                  text-shadow: 5px 5px 5px greenyellow, -5px -5px 5px greenyellow, -5px 5px 10px greenyellow, 5px -5px 5px greenyellow;
+    
+                }
             }
         }
-    }
-
-}
-.flash {
-     
-  animation: flashEffect 1s ease-in-out;
-}
-
-@keyframes flashEffect {
-  0%, 10%, 20%, 40%, 70%, 100% {
-    opacity: 1;
-  }
-  5%,15%,30%,55%,85% {
-    opacity: 0;
-    background-color: $maincolor;
-  }
-}
-
-main {
-    width: 80vw;
-    margin-top: 5vh;
     
+    }
+    
+    // 
+
+    main {
+        width: 80vw;
+        margin-top: 5vh;
+        visibility:visible;
+          
+        // Clase hero que será lo principal que se vea al lanzar la web
+
+        .hero {
+            margin-bottom:10vh;   
+            color: $filtrobgcolor;
+            visibility:visible;
+
 
     
-    .hero {
-        margin-bottom:10vh;   
-        color: $filtrobgcolor;
-        p {
-          font-size: 3em;
-          font-family: 'Pacifico','Serif';
-          span {
-            color: $maincolor2;
-            text-shadow: 0 0 35px rgb(164, 3, 3);
-            font-size: 3em;
-          }
-        }
-        img {
-          max-width: 100%;
-          height: auto; /* Mantiene las proporciones */
-          border-radius: 50%;
-        }
-    }
-  
-    .progress-bar {
-        width: 10%;
-        transition: width 3s linear;
-        
-    }
-
+            p {
+              font-size: 3em;
+              font-family: 'Pacifico','Serif';
+              visibility:visible;
     
+              span {
+    
+                // Dentro del div hero, hay una sección que destacará con un color distinto y 
+                // apareciendo una animación desde el principio que imitará a una luz de neon iluminando
+                // el resto de la web
 
-    .cards {
+                &.special{
+                  color: $maincolor2;
+                  text-shadow: 0 0 35px rgb(164, 3, 3);
+                  font-size: 3em;
+                  animation: lights 6s linear 1;
+                  visibility:visible;
+                  opacity: 1;
+                  @keyframes lights {
+    
+                    0% {
+                      opacity: 0;
+                    }
+    
+                    20% {
+    
+                      opacity: 1;
+                    }
+    
+                    40% {
+    
+                      opacity: 0;
+                    }
+                    
+                    55% {
+                      opacity: 1;
+                    }
+    
+                    70% {
+                      opacity: 0;
+                    }
+                    75% {
+                      opacity: 1;
+                    }
+    
+                    80% {
+                      opacity: 0;
+                    }
+                    83% {
+                      opacity: 1;
+                    }
+    
+                    84% {
+                      opacity: 0;
+                    }
+                    85% {
+                      opacity: 1;
+                    }
+    
+                    87% {
+                      opacity: 0;
+                    }
+                    88% {
+                      opacity: 1;
+                    }
+                    89% {
+                      opacity: 0;
+                    }
+                    90% {
+                      opacity: 1;
+                    }
+                    95% {
+                      opacity: 0;
+                    }
+                    100% {
+                      opacity: 1;
+                    }
+                    
+    
+                  }
+                  
+                }
+              }
+            }
 
+            // Para mantener el tamaño del svg de la clase hero y que no se rompa cuando cambie la resolución
 
-      .card {
-        transform-origin: center;
-        background-color: black;
-        cursor: pointer;
-        transition: transform 1s linear;
-        &:hover {
-          animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
-          box-shadow: 0 0 1px $maincolor2, 0 0 15px $maincolor2, 0 0 30px $maincolor2;
-
-          z-index: 1;
-          transform: scale(1.2);
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotateY(0deg) scale(1);
-
-          }
-          100% {
-            transform: rotateY(360deg) scale(1.2);
-
-          }
-        }
-
-        
-
-        h1 {
-          color: $filtrobgcolor;
-          font-family: "Pacifico", serif;
-          font-size: 3em;
+            img {
+              max-width: 100%;
+              height: auto; /* Mantiene las proporciones */
+              border-radius: 50%;
+            }
         }
       
-        p {
-          color: $filtrobgcolor;
-          text-align: justify;
-          font-family: "Lato", serif;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 1.2em;
-          padding: 0 1vw;
+        .cards {
+      
+          .card {
+            transform-origin: center;
+            cursor: pointer;
+    
+            transition: transform 1s linear;
+            &:hover {
+              visibility: visible;  /* El fondo vuelve a ser visible */
+              opacity: 1;
+              background-color: black;
+              animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
+              z-index: 1;
+              box-shadow: 0 0 1px $maincolor2, 0 0 15px $maincolor2, 0 0 30px $maincolor2;
+    
+              transform: scale(1.2);
+            }
+    
+            @keyframes spin {
+              0% {
+                transform: rotateY(0deg) scale(1);
+    
+              }
+              100% {
+                transform: rotateY(360deg) scale(1.2);
+    
+              }
+            }
+    
+            
+    
+            h1 {
+              color: $filtrobgcolor;
+              font-family: "Pacifico", serif;
+              font-size: 3em;
+            }
+          
+            p {
+              color: $filtrobgcolor;
+              text-align: justify;
+              font-family: "Lato", serif;
+              font-weight: 400;
+              font-style: italic;
+              font-size: 1.2em;
+              padding: 0 1vw;
+            }
+          }
+        }
+    
+        // Declaramos las clases que se utilizarán para que las distintas barras de progeso de las habilidades
+        // se animen en el momento en el que aparecen por pantalla ( si se mueve la pantalla hasta su posición
+        // antes de que finalice la animación inicialm ya no se verá la animación de éstas).
+
+        .skills {
+          .skill {
+            .progress-bar {
+              width: 10%;
+              transition: width 3s linear;
+              
+            }
+            p {
+              color: $filtrobgcolor;
+              font-family: "Lato", serif;
+              font-weight: 400;
+            }
+            .bar-100{
+              width: 100%;
+            }
+            .bar-80{
+              width: 80%;
+            }
+            .bar-70{
+              width: 70%;
+            }
+          }
+        }
+      
+        // Formulario de contacto
+
+        #contact {
+          margin-top: 3vh;
+          h1 {
+            
+            color: $filtrobgcolor;
+            font-family: "Lato", serif;
+            font-weight: 400; 
+          }
+          div {
+            margin-top: 1vh;
+            label {
+              min-width: 3vw;
+              color: $filtrobgcolor;
+              font-family: "Lato", serif;
+              font-weight: 400;      
+            }
+            input {
+              width: 25vw;
+              font-family: "Lato", serif;
+              font-weight: 400;
+              margin-right: 1vw;
+            }
+          }
+          label {
+            margin: 1vh 0;
+            color: $filtrobgcolor;
+              font-family: "Lato", serif;
+              font-weight: 400;  
+          }
+          textarea {
+            margin-bottom: 3vh;
+          }
+        }
+    
+    }
+    
+    // Footer
+
+    footer {
+    
+      border-top: 1px solid $maincolor2;
+      font-size: 0.8em;
+      img {
+        &:hover {
+          cursor: pointer;
         }
       }
     }
 
-    .skills {
-      .skill {
-        p {
-          color: $filtrobgcolor;
-          font-family: "Lato", serif;
-          font-weight: 400;
+    // Media queries que modifican el tamaño de las fuentes, para que no descuadre a medida que cambian
+    // las resoluciones, los principales problemas ocurrían a menores resoluciones
+    
+    @media (max-width: 520px) {
+    
+      header {
+        ul {
+          a {
+            font-size: 2em;
+          }
         }
-        .bar-100{
-          width: 100%;
-        }
-        .bar-80{
-          width: 80%;
-        }
-        .bar-70{
-          width: 70%;
-        }
+    
+    
       }
+      main {
+        .hero {
+          p {
+            font-size: 2em;
+            font-family: 'Pacifico','Serif';
+            color: white;
+            span {
+              &.special{
+                color: $maincolor2;
+                text-shadow: 0 0 35px rgb(164, 3, 3);
+                font-size: 2em;
+              }
+            }
+          }
+        }
+    
+      
+      }
+    
     }
-   
-    #contact {
-      margin-top: 3vh;
-      h1 {
+    @media (min-width:525px) and (max-width: 900px) {
+    
+      header {
+        ul {
+          a {
+            font-size: 2.5em;
+          }
+        }
+    
+    
+      }
+      main {
+        .hero {
+          p {
+            font-size: 2.5em;
+            font-family: 'Pacifico','Serif';
+            color: white;
+            span {
+              &.special{
+                color: $maincolor2;
+                text-shadow: 0 0 35px rgb(164, 3, 3);
+                font-size: 2em;
+              }
+            }
+          }
+        }
+    
+      
         
-        color: $filtrobgcolor;
-        font-family: "Lato", serif;
-        font-weight: 400; 
       }
-      div {
-        margin-top: 1vh;
-        label {
-          min-width: 3vw;
-          color: $filtrobgcolor;
-          font-family: "Lato", serif;
-          font-weight: 400;      
-        }
-        input {
-          width: 25vw;
-          font-family: "Lato", serif;
-          font-weight: 400;
-          margin-right: 1vw;
-        }
-      }
-      label {
-        margin: 1vh 0;
-        color: $filtrobgcolor;
-          font-family: "Lato", serif;
-          font-weight: 400;  
-      }
-      textarea {
-        margin-bottom: 3vh;
-      }
+    
     }
-
-}
-
-footer {
-
-  border-top: 1px solid $maincolor2;
-  font-size: 0.8em;
-  img {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-//  @media (min-width: 576px) { ... } /* sm */
-/* Estilo solo para md (medium, 768px a 991.98px) */
-@media (max-width: 520px) {
-
-  header {
-    ul {
-      a {
-        font-size: 2em;
-      }
-    }
-
-
-  }
-  main {
-    .hero {
-      p {
-        font-size: 2em;
-        font-family: 'Pacifico','Serif';
-        color: white;
-        span {
-          color: $maincolor2;
-          text-shadow: 0 0 35px rgb(164, 3, 3);
-          font-size: 2em;
+    
+    
+    @media (min-width: 1199px) and (max-width: 1324px) {
+    
+      main {
+        .hero {
+          p {
+            font-size: 2em;
+            font-family: 'Pacifico','Serif';
+            color: white;
+            span {
+              &.special{
+                color: $maincolor2;
+                text-shadow: 0 0 35px rgb(164, 3, 3);
+                font-size: 2em;
+              }
+            }
+          }
         }
       }
     }
-
-   
-  }
-
-}
-@media (min-width:525px) and (max-width: 900px) {
-
-  header {
-    ul {
-      a {
-        font-size: 2.5em;
-      }
-    }
-
-
-  }
-  main {
-    .hero {
-      p {
-        font-size: 2.5em;
-        font-family: 'Pacifico','Serif';
-        color: white;
-        span {
-          color: $maincolor2;
-          text-shadow: 0 0 35px rgb(164, 3, 3);
-          font-size: 2em;
+    @media (min-width: 1325px) and (max-width: 1900px) {
+    
+      main {
+        .hero {
+          p {
+            font-size: 2.2em;
+            font-family: 'Pacifico','Serif';
+            color: white;
+            align-self: center;
+            span {
+              &.special{
+                color: $maincolor2;
+                text-shadow: 0 0 35px rgb(164, 3, 3);
+                font-size: 2em;
+              }
+            }
+          }
         }
       }
     }
-
-   
+    
+    @media (min-width: 1901px) and (max-width: 2302px) {
+      
+      main {
+        .hero {
+          p {
+            font-size: 2.5em;
+            font-family: 'Pacifico','Serif';
+            color: white;
+            span {
+              &.special{
+                color: $maincolor2;
+                text-shadow: 0 0 35px rgb(164, 3, 3);
+                font-size: 2.8em;
+              }
+            }
+          }
+        }
+      }
+    }
     
   }
-
 }
-
-
-/* Estilo solo para lg (large, 992px a 1199.98px) */
-@media (min-width: 1199px) and (max-width: 1324px) {
-  body {
-    background-color: orange;
-  }
-  main {
-    .hero {
-      p {
-        font-size: 2em;
-        font-family: 'Pacifico','Serif';
-        color: white;
-        span {
-          color: $maincolor2;
-          text-shadow: 0 0 35px rgb(164, 3, 3);
-          font-size: 2em;
-        }
-      }
-    }
-  }
-}
-@media (min-width: 1325px) and (max-width: 1900px) {
-  body {
-    background-color: green;
-  }
-  main {
-    .hero {
-      p {
-        font-size: 2.2em;
-        font-family: 'Pacifico','Serif';
-        color: white;
-        align-self: center;
-        span {
-          color: $maincolor2;
-          text-shadow: 0 0 35px rgb(164, 3, 3);
-          font-size: 2em;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 1901px) and (max-width: 2302px) {
-  body {
-    background-color: orange;
-  }
-  main {
-    .hero {
-      p {
-        font-size: 2.5em;
-        font-family: 'Pacifico','Serif';
-        color: white;
-        span {
-          color: $maincolor2;
-          text-shadow: 0 0 35px rgb(164, 3, 3);
-          font-size: 2.8em;
-        }
-      }
-    }
-  }
-}
-
-
-//@media (min-width: 1200px) { ... } /* xl */
-//@media (min-width: 1400px) { ... } /* x

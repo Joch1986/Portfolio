@@ -8,25 +8,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  visibility: hidden;
+}
+*:not(html):not(body):not(main):not(.hero):not(.lighting):not(.special):not(.card) {
+  animation: lights2 2s linear 1 forwards;
+  animation-delay: 6s;
+}
+@keyframes lights2 {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  visibility: visible;
 }
-
-body {
+html body {
   background-color: black;
+  visibility: visible;
 }
-
-header {
+html body header {
   background-color: black;
   border-bottom: 1px solid rgb(134, 3, 199);
 }
-header ul {
+html body header ul {
   list-style: none;
   height: 7vh;
 }
-header ul a {
+html body header ul a {
   color: rgb(134, 3, 199);
   font-family: "Pacifico", serif;
   font-size: 3em;
@@ -35,60 +48,104 @@ header ul a {
   text-decoration: none;
   transition: font-size 0.3s ease;
 }
-header ul a:hover {
+html body header ul a:hover {
   font-size: 3.3em;
   text-shadow: 5px 5px 5px greenyellow, -5px -5px 5px greenyellow, -5px 5px 10px greenyellow, 5px -5px 5px greenyellow;
 }
-
-.flash {
-  animation: flashEffect 1s ease-in-out;
-}
-
-@keyframes flashEffect {
-  0%, 10%, 20%, 40%, 70%, 100% {
-    opacity: 1;
-  }
-  5%, 15%, 30%, 55%, 85% {
-    opacity: 0;
-    background-color: black;
-  }
-}
-main {
+html body main {
   width: 80vw;
   margin-top: 5vh;
+  visibility: visible;
 }
-main .hero {
+html body main .hero {
   margin-bottom: 10vh;
   color: rgb(230, 230, 230);
+  visibility: visible;
 }
-main .hero p {
+html body main .hero p {
   font-size: 3em;
   font-family: "Pacifico", "Serif";
+  visibility: visible;
 }
-main .hero p span {
+html body main .hero p span.special {
   color: rgb(134, 3, 199);
   text-shadow: 0 0 35px rgb(164, 3, 3);
   font-size: 3em;
+  animation: lights 6s linear 1;
+  visibility: visible;
+  opacity: 1;
 }
-main .hero img {
+@keyframes lights {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  83% {
+    opacity: 1;
+  }
+  84% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  87% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html body main .hero img {
   max-width: 100%;
   height: auto; /* Mantiene las proporciones */
   border-radius: 50%;
 }
-main .progress-bar {
+html body main .progress-bar {
   width: 10%;
   transition: width 3s linear;
 }
-main .cards .card {
+html body main .cards .card {
   transform-origin: center;
-  background-color: black;
   cursor: pointer;
   transition: transform 1s linear;
 }
-main .cards .card:hover {
+html body main .cards .card:hover {
+  visibility: visible; /* El fondo vuelve a ser visible */
+  opacity: 1;
+  background-color: black;
   animation: spin 2s cubic-bezier(0.15, 0.1, 0.25, 1);
-  box-shadow: 0 0 1px rgb(134, 3, 199), 0 0 15px rgb(134, 3, 199), 0 0 30px rgb(134, 3, 199);
   z-index: 1;
+  box-shadow: 0 0 1px rgb(134, 3, 199), 0 0 15px rgb(134, 3, 199), 0 0 30px rgb(134, 3, 199);
   transform: scale(1.2);
 }
 @keyframes spin {
@@ -99,12 +156,12 @@ main .cards .card:hover {
     transform: rotateY(360deg) scale(1.2);
   }
 }
-main .cards .card h1 {
+html body main .cards .card h1 {
   color: rgb(230, 230, 230);
   font-family: "Pacifico", serif;
   font-size: 3em;
 }
-main .cards .card p {
+html body main .cards .card p {
   color: rgb(230, 230, 230);
   text-align: justify;
   font-family: "Lato", serif;
@@ -113,134 +170,121 @@ main .cards .card p {
   font-size: 1.2em;
   padding: 0 1vw;
 }
-main .skills .skill p {
+html body main .skills .skill p {
   color: rgb(230, 230, 230);
   font-family: "Lato", serif;
   font-weight: 400;
 }
-main .skills .skill .bar-100 {
+html body main .skills .skill .bar-100 {
   width: 100%;
 }
-main .skills .skill .bar-80 {
+html body main .skills .skill .bar-80 {
   width: 80%;
 }
-main .skills .skill .bar-70 {
+html body main .skills .skill .bar-70 {
   width: 70%;
 }
-main #contact {
+html body main #contact {
   margin-top: 3vh;
 }
-main #contact h1 {
+html body main #contact h1 {
   color: rgb(230, 230, 230);
   font-family: "Lato", serif;
   font-weight: 400;
 }
-main #contact div {
+html body main #contact div {
   margin-top: 1vh;
 }
-main #contact div label {
+html body main #contact div label {
   min-width: 3vw;
   color: rgb(230, 230, 230);
   font-family: "Lato", serif;
   font-weight: 400;
 }
-main #contact div input {
+html body main #contact div input {
   width: 25vw;
   font-family: "Lato", serif;
   font-weight: 400;
   margin-right: 1vw;
 }
-main #contact label {
+html body main #contact label {
   margin: 1vh 0;
   color: rgb(230, 230, 230);
   font-family: "Lato", serif;
   font-weight: 400;
 }
-main #contact textarea {
+html body main #contact textarea {
   margin-bottom: 3vh;
 }
-
-footer {
+html body footer {
   border-top: 1px solid rgb(134, 3, 199);
   font-size: 0.8em;
 }
-footer img:hover {
+html body footer img:hover {
   cursor: pointer;
 }
-
-/* Estilo solo para md (medium, 768px a 991.98px) */
 @media (max-width: 520px) {
-  header ul a {
+  html body header ul a {
     font-size: 2em;
   }
-  main .hero p {
+  html body main .hero p {
     font-size: 2em;
     font-family: "Pacifico", "Serif";
     color: white;
   }
-  main .hero p span {
+  html body main .hero p span.special {
     color: rgb(134, 3, 199);
     text-shadow: 0 0 35px rgb(164, 3, 3);
     font-size: 2em;
   }
 }
 @media (min-width: 525px) and (max-width: 900px) {
-  header ul a {
+  html body header ul a {
     font-size: 2.5em;
   }
-  main .hero p {
+  html body main .hero p {
     font-size: 2.5em;
     font-family: "Pacifico", "Serif";
     color: white;
   }
-  main .hero p span {
+  html body main .hero p span.special {
     color: rgb(134, 3, 199);
     text-shadow: 0 0 35px rgb(164, 3, 3);
     font-size: 2em;
   }
 }
-/* Estilo solo para lg (large, 992px a 1199.98px) */
 @media (min-width: 1199px) and (max-width: 1324px) {
-  body {
-    background-color: orange;
-  }
-  main .hero p {
+  html body main .hero p {
     font-size: 2em;
     font-family: "Pacifico", "Serif";
     color: white;
   }
-  main .hero p span {
+  html body main .hero p span.special {
     color: rgb(134, 3, 199);
     text-shadow: 0 0 35px rgb(164, 3, 3);
     font-size: 2em;
   }
 }
 @media (min-width: 1325px) and (max-width: 1900px) {
-  body {
-    background-color: green;
-  }
-  main .hero p {
+  html body main .hero p {
     font-size: 2.2em;
     font-family: "Pacifico", "Serif";
     color: white;
     align-self: center;
   }
-  main .hero p span {
+  html body main .hero p span.special {
     color: rgb(134, 3, 199);
     text-shadow: 0 0 35px rgb(164, 3, 3);
     font-size: 2em;
   }
 }
 @media (min-width: 1901px) and (max-width: 2302px) {
-  body {
-    background-color: orange;
-  }
-  main .hero p {
+  html body main .hero p {
     font-size: 2.5em;
     font-family: "Pacifico", "Serif";
     color: white;
   }
-  main .hero p span {
+  html body main .hero p span.special {
     color: rgb(134, 3, 199);
     text-shadow: 0 0 35px rgb(164, 3, 3);
     font-size: 2.8em;
